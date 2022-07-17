@@ -1,16 +1,27 @@
-# This is a sample Python script.
+from appium import webdriver
+from select import select
+from selenium.webdriver.common.by import By
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+driver ={
+  "platformName": "Android",
+  "platformVersion": "12",
+  "deviceName": "crosshatch",
+  "automationName": "UiAutomator2",
+  "appPackage": "com.google.android.calculator",
+  "appActivity": "com.android.calculator2.Calculator"
+}
 
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', driver)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+#suma de dos numero
+#Click para abrir
+driver.find_element(By.ID,'com.google.android.calculator:id/collapse_expand').click()
+#Click para cerrar
+driver.find_element(By.ID,'com.google.android.calculator:id/collapse_expand').click()
 
+driver.find_element(By.ID,'com.google.android.calculator:id/digit_9').click()
+driver.find_element(By.ID,'com.google.android.calculator:id/op_add').click()
+driver.find_element(By.ID,'com.google.android.calculator:id/digit_8').click()
+driver.find_element(By.ID,'com.google.android.calculator:id/eq').click()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#valor = select(driver.find_element(By.ID,'com.google.android.calculator:id/formula')).
