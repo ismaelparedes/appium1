@@ -1,7 +1,8 @@
 from appium import webdriver
 from select import select
 from selenium.webdriver.common.by import By
-
+#Infromacion del dispositivo y app en uso
+#C:\Users\fabra>adb shell "dumpsys activity activities | grep mResumedActivity"
 driver ={
   "platformName": "Android",
   "platformVersion": "12",
